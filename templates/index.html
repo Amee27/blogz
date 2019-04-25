@@ -1,21 +1,14 @@
 {% extends 'base.html' %}
 
 {% block content %}
-{% if list_view == True %}
-    <h1 style="text-align:center;">{{title}}</h1>
-{% endif %}
+<h1>Blog Users!</h1>
 <div class="blogs">
-{% if blog|length == 0 %}
-    <p>No posts yet. <a href="/newpost">Write one!</a></p>
-
+{% if users|length == 0 %}
+    <p>Weird. No one's signed up yet. <a href="/signup">Be the first!</a></p>
 {% else %}
-    {% for post in blog %}
-        {% if list_view == True %}
-            <h2><a href="blog?id={{post.id}}">{{post.title}}</a></h2>
-        {% else %}    
-            <h1 style="text-align:center;">{{post.title}}</h1>
-        {% endif %}
-        <p>{{post.content}}</p>
+    <ul id="blogs">
+    {% for user in users %}
+        <li><a href="/blog?user={{user.id}}">{{user.username}}</a></li>
     {% endfor %}
 {% endif %}
 </div>

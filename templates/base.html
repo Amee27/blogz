@@ -5,24 +5,63 @@
         .error { 
             color: red; 
         }
+        
         .blog-heading {
             display: inline;
-            padding-right: 40px;
+            padding-right: 20px;
+            margin-left: 30px;
         }
+        
+        .blogs {
+            margin-left: 200px;
+            padding-top: 5px;
+        }
+
+        h1 {
+            margin-left: 200px;
+        }
+        .column {
+            float: left;
+            width: 50%;
+        }
+
+        .row:after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    
     </style>
     <title>{{title}}</title>
 </head>
 <body>
-<div id="navigation">
-    <ul>
-        <li class="blog-heading"><a href="/blog">Main Blog Page</a></li>
-        <li class="blog-heading"><a href="/newpost">Add a Blog Entry</a></li>
-    </ul>
+<div class="row">
+    <div class="column">
+        <ul>
+            <li class="blog-heading"><a href="/">Home</a></li>
+            <li class="blog-heading"><a href="/blog">All Posts</a></li>
+            <li class="blog-heading"><a href="/newpost">New Post</a></li>
+        </ul>
+    </div>
+    <div class="column">
+        <ul>       
+            <li class="blog-heading"><a href="/login">Login</a></li>
+            <li class="blog-heading"><a href="/logout">Logout</a></li>
+        </ul>
+    </div>
+    
 </div>
-<div>
+    {% with messages = get_flashed_messages() %}
+        <ul>
+        {% for message in messages %}
+            <li>{{message}}</li>
+        {% endfor %}
+        </ul>
+    {% endwith %}
+
     {% block content %}
     {% endblock %}
-</div>
+
 
 </body>
 </html>

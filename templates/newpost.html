@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1 class="add">Add a Blog Entry</h1>
+<h1 class="add">New Post</h1>
 <form action="/newpost" method="POST">
     <table>
         <tr>
@@ -13,11 +13,10 @@
         <tr>
             <td class="error">{{title_error}}</td>
         </tr>
+        
+            
         <tr>
-            <td></td>
-        </tr>
-        <tr>
-            <td><label for="blog_content">Your new blog:</label></td>
+            <td><label for="blog_content">Post for your new blog:</label></td>
         </tr>
         <tr>
             <td colspan="2"><textarea name="blog_content" id="blog_content" wrap="hard">{{blog_content}}</textarea></td>
